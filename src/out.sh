@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+echo "<!DOCTYPE html>"
+echo "<html>"
+echo "    <head>"
+echo "        <title>Example</title>"
+echo "    </head>"
+echo "    <body>"
+echo "        <p>This is an example of a simple HTML page with one paragraph.</p>"
+echo "    </body>"
+echo "</html>"
