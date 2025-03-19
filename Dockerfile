@@ -1,15 +1,15 @@
-# Dockerfile
+FROM busybox:1.35
 
-FROM ubuntu:20.04
+# Create a non-root user to own the files and run our server
+RUN adduser -D static
+USER static
+WORKDIR /home/static
 
-#RUN apt update && apt install -y sbcl
-
-WORKDIR /usr/src/app
-
-COPY ./src/* .
+# Copy the static website
+# Use the .dockerignore file to control what ends up inside the image!
+COPY . .
 
 EXPOSE 8080
 
-# hello world ausgeben
-#CMD ["/usr/bin/echo", "Hello World"]
-CMD ["./out.sh"]
+# Run BusyBox httpd
+CMD ["busybox", "httpd", "-f", "-v", "-p", "8080"]
